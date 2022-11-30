@@ -5,17 +5,20 @@ require ('dotenv').config();
 // Database connection
 module.exports = () =>{
     selectedDb: {}
+
+    const connectionParams= 
+    {useNewUrlParser: true,
+    useUnifiedTopology:true,};
+
     async function connect(){
         try {
-            const client = await MongoClient.connect(process.env.DB);
+            const client = new MongoClient.connect(process.env.DB, connectionParams);
+            await client.connect();
             this.selectedDb = client.db('bms');
         } catch(err) {
             console.error(err);
         }}
-    
-    const connectionParams= 
-    {useNewUrlParser: true,
-    useUnifiedTopology:true,};
+
     try {
         mongoose.connect(process.env.DB, connectionParams)
         console.log("Connected to database successfully")
