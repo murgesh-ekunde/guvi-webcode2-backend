@@ -5,10 +5,10 @@ const { string } = require('joi');
 const Joi = require('joi');
 
 const userSchema = new mongoose.Schema({
-    firstName: {type:string, required:true},
-    lasttName: {type:string, required:true},
-    email: {type:string, required:true},
-    password: {type:string, required:true}
+    firstName: {type:String, required:true},
+    lasttName: {type:String, required:true},
+    email: {type:String, required:true},
+    password: {type:String, required:true}
 });
 
 userSchema.methods.generateAuthToken = function(){
