@@ -1,8 +1,18 @@
 const mongoose = require("mongoose");
+const {MongoClient} = require('mongodb');
 require ('dotenv').config();
 
 // Database connection
 module.exports = () =>{
+    selectedDb: {}
+    async function connect(){
+        try {
+            const client = await MongoClient.connect(process.env.DB);
+            this.selectedDb = client.db('bms');
+        } catch(err) {
+            console.error(err);
+        }}
+    
     const connectionParams= 
     {useNewUrlParser: true,
     useUnifiedTopology:true,};
@@ -13,4 +23,5 @@ module.exports = () =>{
         console.log(error);
         console.log("Could not connect to database!")
     }
-};
+}
+
