@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
-const {MongoClient} = require('mongodb');
-require ('dotenv').config();
 
-// Database connection
 module.exports = () => {
 	const connectionParams = {
 		useNewUrlParser: true,
@@ -16,7 +13,6 @@ module.exports = () => {
 		console.log("Could not connect database!");
 	}
 };
-
 
 // function connectToDB (){
 //     selectedDb: {}
@@ -32,4 +28,4 @@ module.exports = () => {
 //         console.log(error);
 //         console.log("Could not connect to database!")
 //     }
-// }
+// 
