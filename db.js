@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 require ('dotenv').config();
 
+// Database connection
 module.exports = () =>{
     const connectionParams= 
     {useNewUrlParser: true,
