@@ -16,6 +16,10 @@ app.use("/admin", adminRouter);
 app.use("/movie",movieRouter);
 app.use("/booking", bookingsRouter)
 
+app.get("/", async function(request,response){
+    response.send("Hi, Welcome to Capstone...!!!")
+})
+
 mongoose.connect(
     `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.ude2aji.mongodb.net/?retryWrites=true&w=majority`
     ).then(()=>{
