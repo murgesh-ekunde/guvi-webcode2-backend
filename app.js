@@ -1,10 +1,24 @@
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import cors from "cors";
 import userRouter from "./routes/user-routes.js";
 import adminRouter from "./routes/admin-routes.js";
 import movieRouter from "./routes/movie-routes.js";
 import bookingsRouter from "./routes/booking-routes.js";
+
+
+app.use(function(req, res, next) {
+    res.header(
+        "Access-Control-Allow-Headers",
+        "x-auth-token, Origin, Content-Type, Accept"
+    );
+    res.setHeader("Access-Control-Allow-Origin","*");
+    res.setHeader("Access-control-Allow-Methods", "GET, POST, PUT");
+    res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With, content-type,Accept,Authorization");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    next();
+});
 
 dotenv.config();
 const app = express();
