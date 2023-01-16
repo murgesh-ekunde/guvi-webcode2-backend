@@ -7,6 +7,8 @@ import adminRouter from "./routes/admin-routes.js";
 import movieRouter from "./routes/movie-routes.js";
 import bookingsRouter from "./routes/booking-routes.js";
 
+dotenv.config();
+const app = express();
 
 app.use(function(req, res, next) {
     res.header(
@@ -19,9 +21,6 @@ app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Credentials", true);
     next();
 });
-
-dotenv.config();
-const app = express();
 
 // middlewares
 app.use(express.json());
