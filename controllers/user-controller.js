@@ -41,7 +41,7 @@ export const signup = async(req, res, next)=>{
     if(!user){
         return res.status(500).json({message:"Unexpected error occured!"})
     }
-    return res.status(201).json({user});
+    return res.status(201).json({id: user._id});
 }
 
 // Controller function to update user
