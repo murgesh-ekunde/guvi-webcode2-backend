@@ -3,8 +3,8 @@ import { deleteBooking, getBookingById, newBooking } from "../controllers/bookin
 
 const bookingsRouter = express.Router();
 
-bookingsRouter.post("/:id",getBookingById);
-bookingsRouter.get("/",newBooking);
+bookingsRouter.get("/:id",getBookingById);
+bookingsRouter.post("/",newBooking);
 bookingsRouter.delete("/:id", deleteBooking)
 
 export default bookingsRouter

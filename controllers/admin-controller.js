@@ -58,7 +58,7 @@ export const adminLogin = async(req, res, next) =>{
         return res.status(400).json({message:"Invalid password"});
     }
 
-    const token = Jwt.sign({id: existingAdmin._id}, process.env.SECRET_KEY,{expiresIn: "1d"});
+    const token = Jwt.sign({id: existingAdmin._id}, process.env.SECRET_KEY,{expiresIn: "7d"});
 
     return res.status(200).json({message:"Authentication complete", token, id:existingAdmin._id})
 }
